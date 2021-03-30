@@ -1,5 +1,7 @@
 
-/*created by prashant shukla */
+rightWristX = "";
+rightWristY = "";
+score_RightWrist = "";
 
 var paddle2 =10,paddle1=10;
 
@@ -41,8 +43,12 @@ console.log('Model Loaded!');
 
 function draw(){
 
- background(0); 
-
+ background(0);
+ 
+ fill("purple");
+ stroke("black");
+ circle(rightWristX, rightWristY, 2);
+ 
  fill("black");
  stroke("black");
  rect(680,0,20,700);
