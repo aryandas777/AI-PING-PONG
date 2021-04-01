@@ -2,6 +2,7 @@
 rightWristX = "";
 rightWristY = "";
 score_RightWrist = "";
+GameStatus = "";
 
 var paddle2 =10,paddle1=10;
 
@@ -40,22 +41,28 @@ function modelLoaded()
 console.log('Model Loaded!');
 }
 
+function startGame() {
+  GameStatus = "True";
+  document.getElementById('status').innerHTML = "Game is Loading";
+}
+
 
 function draw(){
 
- background(0);
+  if(GameStatus == "True"){
+    background(0);
  
- fill("purple");
- stroke("black");
- circle(rightWristX, rightWristY, 2);
+  fill("purple");
+  stroke("black");
+  circle(rightWristX, rightWristY, 2);
  
- fill("black");
- stroke("black");
- rect(680,0,20,700);
+  fill("black");
+  stroke("black");
+  rect(680,0,20,700);
 
- fill("black");
- stroke("black");
- rect(0,0,20,700);
+  fill("black");
+  stroke("black");
+  rect(0,0,20,700);
  
    //funtion paddleInCanvas call 
    paddleInCanvas();
@@ -85,6 +92,7 @@ function draw(){
    //function move call which in very important
     move();
 }
+}
 
 
 
@@ -94,7 +102,7 @@ function reset(){
    ball.y = height/2+100;
    ball.dx=3;
    ball.dy =3;
-   
+   document.getElementById('status').innerHTML = "";
 }
 
 
@@ -181,3 +189,6 @@ function paddleInCanvas(){
     mouseY =0;
   }  
 }
+
+
+ 
